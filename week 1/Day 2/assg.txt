@@ -1,0 +1,35 @@
+1.What are the types of Pop up boxes available in JavaScript ?  Find some more details about pop-boxes? 
+ -Alert
+ -Confirm
+   Asks the user to confirm something. Often, this is in conjunction with another 
+   (potentially significant) action that the user is attempting to perform.
+ -Prompt
+   Prompts the user for information
+
+2.What is BOM?    Diff... between DOM and BOM?
+  Browser object model
+  BOM is used on the Windows screen and communicates with the browser. 
+  BOM refers to Windows objects in JavaScript.
+  Difference : 
+  Bom is a browser object model that is used to get or set up the properties, 
+  behavior of the browser, such as the new window, get the screen resolution, browser version number, etc. 
+  The DOM is a document object model that is used to get the properties of the tag in the document, such as 
+  obtaining or setting the value value of the input form.
+  
+3.Find some details about the following methods:
+			a. push()
+			b. pop()
+			c. splice()
+  a. The push() method adds new items to the end of an array.
+     ex: const fruits = ["Banana", "Orange", "Apple", "Mango"];
+	 fruits.push("Kiwi");
+  b. The pop() method removes (pops) the last element of an array.
+     ex: const fruits = ["Banana", "Orange", "Apple", "Mango"];
+	 fruits.pop();
+  c. The splice() method adds and/or removes array elements.
+     ex1: const fruits = ["Banana", "Orange", "Apple", "Mango", "Kiwi"];
+	 // At position 2, remove 2 items: 
+	 fruits.splice(2, 2);
+     ex2: const fruits = ["Banana", "Orange", "Apple", "Mango"];
+	 // At position 2, add 2 elements: 
+	 fruits.splice(2, 0, "Lemon", "Kiwi");

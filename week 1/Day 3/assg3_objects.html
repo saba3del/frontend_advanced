@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>assignment objects</title>
+    </head>
+    <body>
+    <h1>Objects Assignment</h1>
+    <hr/>
+    <input type="button"   value="Object initialize" onclick="f1()"  /><br/><br/>
+    <input type="button"   value="empty object" onclick="f2()"  /><br/><br/>
+    <input type="button"   value="constructor function" onclick="f3()"  />
+    <br></br>
+    
+    <div id="div1">	</div>
+    
+    <script> 
+     function   f1()
+     {		
+        var   s1  = {empno:123, ename: "scott", job: "manager", sal: 25000, deptno:306 };  	 
+        
+        var  str  = `Emp no.  : ${s1.empno} ,   Emp Name  :  ${s1.ename} , Job  :  ${s1.job} , Salary  :  ${s1.sal} , Department no.  :  ${s1.deptno}`;
+        
+        var obj = document.getElementById("div1");
+        obj.innerHTML  = str;
+    }	
+    
+    function   f2()
+     {		
+        var   s2  = {}; 
+        s2.empno=456;
+        s2.ename= "Ravi";
+        s2.job= "Analyst";
+        s2.sal= 18000;
+        s2.deptno=222;
+        		
+        
+        var  str  = `Emp no.  : ${s2.empno} ,   Emp Name  :  ${s2.ename} , Job  :  ${s2.job} , Salary  :  ${s2.sal} , Department no.  :  ${s2.deptno}`;        
+        var obj = document.getElementById("div1");
+        obj.innerHTML  = str;
+    }	
+    
+    
+    function  employee()
+    {
+        this.empno  = 789;
+        this.ename  = "Maneesh";
+        this.job = "consulting";
+        this.sal = 20000;
+        this.deptno =164;
+    }
+    
+    function   f3()
+     {		
+        var   s3  =  new employee();	 		
+        
+        var  str  = `Emp no.  : ${s3.empno} ,   Emp Name  :  ${s3.ename} , Job  :  ${s3.job} , Salary  :  ${s3.sal} , Department no.  :  ${s3.deptno}`; 
+        var obj = document.getElementById("div1");
+        obj.innerHTML  = str;
+    }	
+     
+     
+    </script>
+    </body> 
+    </html>

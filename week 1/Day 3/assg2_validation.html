@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form validation</title>
+</head>
+<body>
+    <h1>Form validation using JavaScript</h1>
+    <hr/>
+    
+    <form action="data.php" method="get" onclick="fn_submitData()">
+       Full name :  <input type="text" id="cname" name="cname" onblur="fn_required()" autofocus/> <span id="sp1" style="color: red;"> </span><br/><br/>
+       Source station : <input type="text" id="srcsta" name="srcsta" /><br/><br/>
+       Destination station : <input type="text" id="dessta" name="dessta" onblur="fn_stations()" /><span id="sp2" style="color: red;"> </span>  <br/><br/>
+       Contact no. : <input type="number" id="phnno" name="phnno" onblur="fn_phnno()" /><span id="sp3" style="color: red;"></span><br/><br/>
+      <input type="submit" value="submit data" />
+    </form>
+
+    <script>
+        function fn_required(){
+            var cname = document.getElementById("cname").value;
+            if(cname.trim().length == 0){
+                document.getElementById("sp1").innerHTML = "Name is required field";
+                document.getElementById("cname").focus();
+            }
+            else{
+                var msg = document.getElementById("sp1").innerHTML = "";
+            }
+        }
+
+        function fn_stations(){
+            var srcStation = document.getElementById("srcsta").value;
+            var desStation = document.getElementById("dessta").value;
+            if(srcStation==desStation){
+                document.getElementById("sp2").innerHTML=" sourse station and destination should not be same";
+                document.getElementById("srcsta").focus();
+            }
+            else{
+                document.getElementById("sp2").innerHTML="";
+            }
+        }
+
+        function fn_phnno(){
+            var phnno = document.getElementById("phnno").value;
+            if (phnno.length != 10){
+                document.getElementById("sp3").innerHTML=" Contact no. should contain 10 digits";
+                document.getElementById("phnno").focus();
+            }
+            else
+            {
+                document.getElementById("sp3").innerHTML="";
+            }
+        }
+
+
+        //  console.log(parseInt("123Hello"));
+        //  console.log(parseInt("Hello123"));
+        //  console.log(parseInt("Hi123Hello"));
+        //  console.log(parseInt("123"));
+    </script>
+
+</body>
+</html>

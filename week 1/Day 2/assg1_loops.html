@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops in javascript</title>
+</head>
+<body>
+    <h1>Loops in javascrpit</h1>
+    <hr/>
+    <button type="button" onclick="fn_getData()">Get Data</button>
+    <ul id="li1">
+    </ul>
+
+    <script>
+        function fn_getData(){
+            var liObj = document.getElementById("li1");
+            var str = "";
+            for(var i=1; i<=4; i++){
+                str =str + "<li>Welcome to javaScript - " + i + "</li>";
+            }
+            liObj.innerHTML = str;
+        }
+    </script>
+</body>
+</html>

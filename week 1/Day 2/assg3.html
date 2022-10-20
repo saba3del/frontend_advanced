@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operations on Arrays</title>
+</head>
+<body>
+    <h1>Operations on Arrays</h1>
+    <hr/>
+    <button type="button" onclick="fn_showData()">Show Data</button><br/><br/>
+    <table id="table1" style="border: 1px solid black;">
+    </table>
+
+    <script>
+        function fn_showData(){
+        var tableObj = document.getElementById("table1");
+        var techNames = ["HTML5","CSS3","jQuery","Angular JS","Bootstrap"];
+       /* for (i=0; i<5; i++){
+            var row = tableObj.insertRow(i);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            cell1.innerHTML= i+1;
+            cell2.innerHTML= techNames[i];
+        }*/
+
+        for(var i=0; i<5; i++){
+            tableObj.innerHTML= tableObj.innerHTML + "<tr><td style='border: 1px solid black;'>" + i + "</td><td style='border: 1px solid black;'>" + techNames[i] + "</td></tr>";
+        }
+
+        
+    }
+    </script>
+</body>
+</html>
