@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch concept</title>
+</head>
+<body>
+    <h1>Asynchronous Programming in  JavaScript --- Async Await</h1>
+    <hr/>
+    <br/>
+    Emp No : 
+    <input type="text" id="empno" ><br/><br/>
+    <input type="button" value="Get Data" onclick="getData()"><br/><br/>
+    <p id="p1"></p>
+    
+    <script>
+
+        function getData(){
+
+        var pObj = document.getElementById("p1");
+        var empno = document.getElementById("empno");
+        let url = "https://dummy.restapiexample.com/api/v1/employee/" + empno.value;
+        fetch(url).then((response)=>
+        {
+            response.json().then((result)=>
+            {
+                pObj.innerHTML = result.data;
+            })
+        })
+    }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Basics</title>
+</head>
+<body>
+    <h1>jQuery Basics</h1>
+    <hr/>
+    <br/>
+    <h3>Enter the product Details</h3>
+    <form>
+    Product Name :
+    <!-- <input type="text" id="pname" name="pname"/><br/><br/> -->
+    <select id="pname" name="pname">
+        <option>hp laptop</option>
+        <option>del laptop</option>
+        <option>samsung phone</option>
+        <option>iphone</option>
+    </select><br/><br/>
+    Quantity : 
+    <input type="text" id="qty" name="qty"/><br/><br/>
+    Price : 
+    <input type="text" id="price" name="price"/><br/><br/>
+    <input type="button" value="total price" id="tprice" onclick="getTotal()"/><br/><br/>
+    <input type="reset" value="Reset"/><br/><br/>
+    Total Price
+    <span id="p1"></span>
+</form>
+    
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+    <script>
+        function getTotal(){
+
+
+            let qty = $("#qty").val();
+            let price = $("#price").val();
+            let pname = $("#pname").val()
+            $("#p1").html("for " + qty + " " + pname + " is : " + parseInt(qty)*parseInt(price));
+
+        }
+    </script>
+    
+</body>
+</html>

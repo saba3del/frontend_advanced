@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM manipulation</title>
+</head>
+<body>
+    <h1>DOM manipulation</h1>
+    <hr/>
+    Enter the details:<br/><br/>
+    Product name : 
+    <input type="text" id="pname" name="pname"/>
+    Unit Price : 
+    <input type="text" id="uprice" name="uprice"/>
+    Units in Stock : 
+    <input type="text" id="avail" name="avail"/><br/><br/>
+    <input type="button" value="Add the product" id="add" /><br/><br/>
+
+    <table id="table1" border="2" width="400px">
+        <tr>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Units In Stock</th>
+        </tr>
+        <tr>
+            <td>Printer</td>
+            <td>2500.00</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>4GB-RAM</td>
+            <td>1200.00</td>
+            <td>23</td>
+        </tr>
+        <tr  >
+            <td>1TB Samsung HDD</td>
+            <td>4500.00</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>32-GB Kingston USB</td>
+            <td>800.00</td>
+            <td>35</td>
+        </tr>  
+        <tr  >
+            <td>1TB Samsung HDD</td>
+            <td>4500.00</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>32-GB Kingston USB</td>
+            <td>800.00</td>
+            <td>35</td>
+        </tr>
+        <tr>
+            <td>Wifi Router</td>
+            <td>1800.00</td>
+            <td>0</td>
+        </tr>  
+     </table> 
+
+     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+     <script>
+        $(document).ready(function(){
+            $("#add").click(function(){
+                let pname = $("#pname").val();
+                let uprice = $("#uprice").val();
+                let avail = $("#avail").val();
+                //alert(uprice + pname + avail);
+
+                $("#table1").append("<tr><td>" + pname + "</td><td>" + uprice + "</td><td>" + avail + "</td></tr>");
+
+            });
+            
+        });
+     </script>
+    
+</body>
+</html>

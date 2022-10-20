@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer in jQuery</title>
+    <style>
+        p{
+            background-color: black;
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            padding: 10px;
+            width: 180px;
+        }
+        #start{
+            background-color: green;
+            color: white;
+            border: 1px solid darkgreen;
+            padding: 10px;
+            margin: 20px;
+        }
+        #stop{
+            background-color: red;
+            color: white;
+            border: 1px solid darkred;
+            padding: 10px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body center>
+    <h1>jQuery Timer</h1><hr/>
+    <p id="p1"><span id="s1">00</span>:<span id="s2">00</span>:<span id="s3">00</span></p>
+    <input type="button" id="start" value="start"/>
+    <input type="button" id="stop" value="stop"/>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            $("#start").click(function(){
+            var count=0;
+            var count1=0;
+            var count2=0;
+            setInterval(function()
+            {
+                count++
+                if(count<10){
+                    $("#s3").html("0" + count);
+                }
+                else
+                {
+                    $("#s3").html(count);
+                }
+                if(count==20){
+                    count1++;
+                    if(count1<10){
+                        $("#s2").html("0" + count1);
+                    }
+                    else{
+                        $("#s2").html(count1);
+                    }
+                    count=0;
+                }
+                if(count1==60){
+                    count2++;
+                    if(count2<10){
+                        $("#s1").html("0" + count2);
+                    }
+                    else{
+                        $("#s1").html(count2);
+                    }
+                    count1=0;
+                        
+                }
+                    
+                 }
+            ,1)})
+
+
+            // setInterval(function()
+            // {
+            //     $("#s3").html(count=count+1 )
+            //     if(count==60){
+            //         count=0;
+            //         $("#s2").html(count1=count1+1);
+            //         //$("#s2").html(count1=count1+1); //error
+            //         if(count1==30){
+            //             count1=0;
+            //             $("#s1").html(count2=count2+1);
+            //         }
+            //     }
+            // },1)})
+            
+            $("#stop").click(function(){
+                $("#p1").html("00:00:00")
+            })
+            
+
+        })
+    </script>
+    
+</body>
+</html>

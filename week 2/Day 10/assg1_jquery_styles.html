@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styles using jQuery</title>
+    <style>
+        .bold{
+            font-weight:bold;
+        }
+        .underline{
+            text-decoration:underline;
+        }
+        .italic
+        {
+            font-style:italic;
+        }
+        .btns
+        {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Appliying styles using jQuery</h1>
+    <hr/>
+    <input type="button" class="btn1" value="B"/>
+    <input type="button" class="btn2" value="U"/>
+    <input type="button" class="btn3" value="I"/>
+    <p id="p1" style="border: 2px solid blue ;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptates nam vero nesciunt magni possimus, quaerat eaque, eum, adipisci at aut facilis incidunt distinctio numquam maxime esse quod et voluptas accusantium. Maiores, temporibus? Doloribus recusandae dolore perspiciatis temporibus est explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi amet, ut facere iste velit maxime sapiente et voluptate similique, voluptatibus iusto tenetur cupiditate reiciendis vitae aliquam. Commodi dolore aliquid rem?</p>
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+    <script>
+        $(".btn1").click(function(){
+            $(".btn1").toggleClass("btns");
+            $("#p1").toggleClass("bold");
+        });
+        $(".btn2").click(function(){
+            $(".btn2").toggleClass("btns");
+            $("#p1").toggleClass("underline");
+        })
+        $(".btn3").click(function(){
+            $(".btn3").toggleClass("btns");
+            $("#p1").toggleClass("italic");
+        })
+    </script>
+</body>
+</html>

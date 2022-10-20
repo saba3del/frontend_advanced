@@ -1,0 +1,30 @@
+1.Check the different types of selectors in CSS 
+Simple selectors : id, class, *(all the elements in html), tag name
+Combinator selectors : descendant selector (space):
+			selects next element only, syntax : div p
+			child selector (>):
+			ex: div > p
+			selects p which are inside the div tag only. 
+
+
+------------------------------------------------------------------------------------------------------
+
+2.  Find some details about CDN
+The content they request is first stored on the origin server and is then replicated and 
+stored elsewhere as needed. This content then can be used by different webpages.
+
+------------------------------------------------------------------------------------------------------
+
+3.  What is the difference between   "this" and  $(this) in jquery programming?
+The this Keyword is a reference to DOM elements of invocation. We can call all DOM methods on it. 
+$() is a jQuery constructor and in $(this), we are just passing this as a parameter so that we can 
+use the jQuery function and methods.
+
+------------------------------------------------------------------------------------------------------
+
+4.  Why do we use $(document).ready()  in jQuery?
+The ready event occurs when the DOM (document object model) has been loaded.
+Because this event occurs after the document is ready, it is a good place to have all other jQuery 
+events and functions.
+
+			

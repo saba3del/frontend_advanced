@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+    <style>
+        div{
+            border: 2px dotted black;
+            border-radius: 10px;
+            width: 250px;
+            height: auto;
+            float: left;
+            text-align: center;
+            margin: 10px;
+            padding-top: 10px;
+            
+        }
+        img{
+            border-radius: 100%;
+            text-align: center;
+        }
+        h3{
+            color:blue;
+            text-decoration: underline;
+            text-align: center;
+        }
+        p{
+            color: blue;
+            text-align: center;
+        }
+    </style>
+</head>
+<body id="body1">
+    <h1>Server Communication Using AJAX</h1>
+    <hr/>
+    <input type="button" value="Get the data" id="data"><br/><br/>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#data").click(function(){
+                $.ajax({
+                    url : "https://reqres.in/api/users",
+                    type : "GET",
+                    success : function(userData)
+                    {
+                        // var udata =  userData.data;
+                        // console.log(udata);
+                        displayUserData(userData.data);
+                    }
+                });
+            });
+        });
+                function displayUserData(uData){
+                    //console.log(udata);
+                    for(let i=0;i<uData.length;i++){
+                    var str = "<div><img src="+uData[i].avatar+"><h3>"+uData[i].first_name+uData[i].last_name+"</h3><p>"+uData[i].email+"</p></div>";
+                    $("#body1").append(str);
+                    }        
+                }
+                
+            
+        
+    </script>
+
+</body>
+</html>

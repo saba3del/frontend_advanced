@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1</title>
+    <style>
+        table td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Filtration using JavaScript</h1>
+    <hr/>
+    Search Value : 
+    <input type="text" id="data" />
+    <input type="button" value="Find By Empno" onclick="btn1()"/>
+    <input type="button" value="Find by Job" onclick="btn2()"/>
+    <br/><br/>
+    <table id="table1" border="2"  cellspacing="0" cellpadding=10px;>
+        <tr>
+            <th >Empno</th>
+            <th >Ename</th>
+            <th >Job</th>
+            <th >Salary</th>
+            <th >Deptno</th>
+        </tr>
+    </table>
+
+
+    <script>
+        var input = document.getElementById("data");
+        
+        var EmpDetails = [{empno: 101, ename: "scott", job: "manager", sal: 55000, deptno:13 },
+                      {empno:102, ename: "Ravi", job: "painter", sal: 20000, deptno:14 },
+                      {empno:103, ename: "Sravya", job: "consultant", sal: 25000, deptno:12 },
+                      {empno:104, ename: "Charmista", job: "services", sal: 20000, deptno:11 },
+                      {empno:105, ename: "Sravanthi", job: "salesforce", sal: 25000, deptno:17 },
+                      {empno:106, ename: "Pushpa", job: "services", sal: 20000, deptno:11 }]
+        
+        //   function empId(id) {
+        //           return id.empno == parseInt(input);
+        //       }
+
+        
+        
+
+        function btn1(){
+
+            //console.log(EmpDetails.find(empId));
+
+            var tableObj = document.getElementById("table1");
+
+            //delete row
+            var rowCount = tableObj.rows.length;
+            for (var i=1; i<rowCount ; i++){
+                tableObj.deleteRow(-1);
+            }
+
+            var result = EmpDetails.find(emp => emp.empno == input.value);
+            //console.log(result);
+
+            
+
+                var row1 = tableObj.insertRow(-1)
+
+                var  cell1 =  row1.insertCell(-1);
+				var  cell2 =  row1.insertCell(-1);
+				var  cell3 =  row1.insertCell(-1);
+                var  cell4 =  row1.insertCell(-1);
+				var  cell5 =  row1.insertCell(-1);
+
+                cell1.innerHTML = result.empno;						
+				cell2.innerHTML = result.ename;						
+				cell3.innerHTML = result.job;
+                cell4.innerHTML = result.sal;						
+				cell5.innerHTML = result.deptno;						
+									
+            
+            
+
+        }
+
+        function btn2(){
+
+            var tableObj = document.getElementById("table1");
+
+            //delete rows
+            var rowCount = tableObj.rows.length;
+            for (var i=1; i<rowCount ; i++){
+                tableObj.deleteRow(-1);
+            }
+
+            var result = EmpDetails.filter(empj => empj.job == input.value);
+            //console.log(result);
+
+            for(let item of result)
+            {
+                var row1 = tableObj.insertRow(-1)
+
+                var  cell1 =  row1.insertCell(-1);
+				var  cell2 =  row1.insertCell(-1);
+				var  cell3 =  row1.insertCell(-1);
+                var  cell4 =  row1.insertCell(-1);
+				var  cell5 =  row1.insertCell(-1);
+
+                cell1.innerHTML = item.empno;						
+				cell2.innerHTML = item.ename;						
+				cell3.innerHTML = item.job;
+                cell4.innerHTML = item.sal;						
+				cell5.innerHTML = item.deptno;
+            }
+        }
+    </script>
+
+</body>
+</html>
