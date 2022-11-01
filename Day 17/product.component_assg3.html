@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<h1>Product Details</h1>
+<hr/>
+Id : <input [(ngModel)]="id" placeholder="Id"/>
+<br/><br/>
+Name : <input [(ngModel)]="name" />
+<br/><br/>
+Price : <input [(ngModel)]="price" />
+<br/><br/>
+Category : <input [(ngModel)]="category" />
+<br/><br/>
+Quantity : <input [(ngModel)]="qty" />
+<br/><br/>
+
+<input type="button" value="Get Product" (click)="getProduct()" />
+<input type="button" value="Add Product" (click)="addProduct()" />
+<input type="button" value="Update Product" (click)="upProduct(id)" />
+<input type="button" value="Reset" (click)="reset()" />
+<br/><br/>
+
+<div *ngFor="let items of productArray" [ngStyle]="{'float':'left' ,margin:'20px', 'background-color': 'wheat', padding:'30px', width : '100px', 'text-align':'center'}"><span>
+    Product Id : {{items.id}}
+    <br/><br/>
+    Name : {{items.name}}
+    <br/><br/>
+    Price : {{items.price}}
+    <br/><br/>
+    Category : {{items.category}}
+    <br/><br/>
+    Quantity : {{items.qty}}
+    <br/><br/>
+    <a href="javascript:void(0);" (click)="selectItem(items.id)" style="color: black;"><i class="bi bi-pencil-square"></i></a>
+    &nbsp;
+    <a href="javascript:void(0);" (click)="deleteItem(items.id)" style="color: black;"><i class="bi bi-trash"></i></a>
+</span></div>
