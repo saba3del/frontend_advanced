@@ -1,0 +1,53 @@
+<!-- <h1>Application Development using Angular</h1>
+<hr/>
+<table border="1" cellspacing="0" cellpadding="4">
+    <tr>
+        <th colspan="2">Employee Details</th>
+    </tr>
+
+    <tr>
+        <td>Employee ID</td>
+        <td>{{empid}}</td>
+    </tr>
+
+    <tr>
+        <td>Employee Name</td>
+        <td>{{empname}}</td>
+    </tr>
+
+    <tr>
+        <td>Employee Job</td>
+        <td>{{job}}</td>
+    </tr>
+
+    <tr>
+        <td>Employee Salary</td>
+        <td>{{salary}}</td>
+    </tr>
+
+    <tr>
+        <td>Employee Dept</td>
+        <td>{{deptno}}</td>
+    </tr>
+
+</table> -->
+
+<!-- week 4 day 19 -->
+
+<input type="button" value="Get Product Data" (click)="btn()" />
+<table border="1" [cellSpacing]="0" [cellPadding]="10">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>price</th>
+        <th>category</th>
+        <th>qty</th>
+    </tr>
+    <tr *ngFor="let item of productArray">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.category}}</td>
+        <td>{{item.qty}}</td>
+    </tr>
+</table>

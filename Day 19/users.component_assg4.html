@@ -1,0 +1,30 @@
+<input type="button" value="Get Users Data" (click)="btn1()" />
+<table border="1" [cellSpacing]="0" [cellPadding]="10">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>email</th>
+        <th>images</th>
+    </tr>
+    <tr *ngFor="let item of userArray">
+        <td>{{item.id}}</td>
+        <td>{{item.first_name}} {{item.last_name}}</td>
+        <td>{{item.email}}</td>
+        <td><img [src]="item.avatar"></td>
+    </tr>
+</table>
+<br/><br/>
+<input type="button" value="Get Cutomers Data" (click)="btn2()" />
+<table border="1" [cellSpacing]="0" [cellPadding]="10">
+    <tr>
+        <th>Name</th>
+        <th>City</th>
+        <th>Country</th>
+    </tr>
+    <tr *ngFor="let item of customerArray">
+        <td>{{item.Name}}</td>
+        <td>{{item.City}} </td>
+        <td>{{item.Country}}</td>
+    </tr>
+</table>
+
