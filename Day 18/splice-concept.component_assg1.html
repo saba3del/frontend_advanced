@@ -1,0 +1,8 @@
+<input type="button" value="Load More" *ngIf="toDisplay" (click)="nextItems()" /><br/><br/>
+<div *ngFor="let items of usersArray | slice : start : end" [ngStyle]="{'float':'left' ,margin:'20px', 'background-color': 'wheat', padding:'30px', width : '100px', 'text-align':'center'}"><span>
+    Id : {{items.id}}
+    <br/><br/>
+    Name : {{items.sname}}
+    <br/><br/>
+    City : {{items.city}}
+</span></div>

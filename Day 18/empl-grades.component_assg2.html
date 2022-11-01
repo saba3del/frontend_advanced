@@ -1,0 +1,30 @@
+<h1>Employee Grades</h1>
+<hr/>
+<table border="1px" [cellSpacing]="0">
+    <tr>
+        <th>S.no</th>
+        <th>Employee Name</th>
+        <th>Employee Grade</th>
+    </tr>
+    <tr *ngFor="let item of empArray">
+              <td> {{item.sno}}</td>
+              <td>{{item.ename}}</td>
+              <td>{{item.grade}}</td>
+    </tr>
+
+</table>
+
+<hr/>
+
+<table border="1px" [cellSpacing]="0">
+    <tr>
+        <th>S.no</th>
+        <th>Employee Name</th>
+        <th>Employee Grade</th>
+    </tr>
+    <tr *ngFor="let item of empArray">
+        <td> {{item.sno}}</td>
+        <td>{{item.ename | uppercase}}</td>
+        <td>{{item.grade | gradepipe}}</td>
+</tr>
+</table>
