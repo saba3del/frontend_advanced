@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Regular expressions</title>
+</head>
+<body>
+    <h1>jQuery regular expressions</h1>
+    Name : 
+    <input type="text" id="pname" />
+    <br/><br/>
+    Phone number : 
+    <input type="text" id="pnumber" />
+    <br/><br/>
+    Vehicle number : 
+    <input type="text" id="vehno" />
+    <br/><br/>
+    City name : 
+    <input type="text" id="city" />
+    <br/><br/>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#pname").keyup(function(){
+                $(".pname_error").remove();
+                var inputval = $(this).val();
+                var nameRegex = /^[A-Za-z]{0,10}$/;
+                if(  nameRegex.test(inputval)  ==  false ) 
+					{
+								$(this).after('<span  class="pname_error">Name should not exceed 10 char and Numeric characters not allowed.</span>');
+				}
+            });
+
+
+            $("#pnumber").keyup(function(){
+                $(".pnumber_error").remove();
+                var inputval = $(this).val();
+                var noRegex = /^[0-9]{10}$/;
+                if(  noRegex.test(inputval)  ==  false ) 
+					{
+								$(this).after('<span  class="pnumber_error">Alphabets are not allowed and no. should be of 10 digits.</span>');
+				}
+            });
+
+            $("#vehno").keyup(function(){
+                $(".vehno_error").remove();
+                var inputval = $(this).val();
+                var vehnoRegex = /^[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}$/;
+                if(  vehnoRegex.test(inputval)  ==  false ) 
+					{
+								$(this).after('<span  class="vehno_error">Do not give spaces. sample : AA11AA1111</span>');
+				}
+            });
+
+
+            $("#city").keyup(function(){
+                $(".city_error").remove();
+                var inputval = $(this).val();
+                var cityRegex = /^[A-Z]+$/;
+                if(  cityRegex.test(inputval)  ==  false ) 
+					{
+								$(this).after('<span  class="city_error">Use capital letters.</span>');
+				}
+            });
+
+        });
+    </script>
+</body>
+</html>

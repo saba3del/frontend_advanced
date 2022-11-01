@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Server</title>
+</head>
+<body>
+    <h1>JSON Server</h1>
+    <hr/>
+    <form>
+        Employee number
+        <input type="text" id="empno" /><br/><br/>
+        Employee name 
+        <input type="text" id="empname" /><br/><br/>
+        Job
+        <select id="job">
+            <option>Manager</option>
+            <option>Directer</option>
+            <option>consultant</option>
+        </select><br/><br/>
+        Department number
+        <input type="text" id="deptno"/><br/><br/>
+    </form>
+    <input type="button" id="saveData" value="Save Data"/>
+    <input type="button" id="getData" value="Get Data"/><br/><br/>
+    <table id="table1">
+        <tr><th>Employee number</th><th>Employee name</th><th>Job</th><th>Department number</th></tr>
+    </table>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            $('#deptno').keyup(function() {
+			 
+             $(".error-t2").remove();						
+             var inputVal = $(this).val();						
+             var NumReg = /^([0-9])+?$/;
+                     
+                 if(  NumReg.test(inputVal)  ==  false && inputVal.length>0) 
+                 {
+                     $(this).after('<span class="error-t2"> Enter Valid Number</span>');
+                 }
+             });
+
+            $("#saveData").click(function(){
+                var  newEmployeeObj = {};
+            	newEmployeeObj.empno  =   $("#empno").val();
+            	newEmployeeObj.empname  =   $("#empname").val();
+            	newEmployeeObj.job  =   $("#job").val();
+                newEmployeeObj.deptno = $("#deptno").val();
+                $.ajax(
+								{
+									url : "http://localhost:3000/emp",
+									type: "POST",
+									data :   newEmployeeObj,
+									success :  function(response)
+									{
+										console.log(response);	
+									    alert("New Customer Details are saved in server");
+                                    }
+								});
+
+            });
+
+            $("#getData").click(function(){
+                $.ajax(
+								{
+									url : "http://localhost:3000/emp",
+									type: "GET",
+									success :  function(response)
+									{
+										displayData(response);
+                                    }
+								});
+                
+                
+            });
+
+            function   displayData(resData)
+			{
+				$("#table1   tr").not(":first").remove();
+				
+								
+				for(let  item  of  resData)
+				{
+						let  str  = `<tr>  <td> ${item.empno} </td>  <td>${item.empname}</td>  <td>${item.job}</td><td>${item.deptno}</td>  </tr>`;				
+						$("#table1").append(str);
+					
+				}
+				
+				
+			 $("#table1  tr:even").css("background-color",  "Pink");
+			 $("#table1  tr:odd").css("background-color",  "lightblue");
+			 
+			 $("#table1  tr:first").css("background-color",  "lightgreen");
+			 
+					
+				
+			
+			}
+        });
+    </script>
+</body>
+</html>

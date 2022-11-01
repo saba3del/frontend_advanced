@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String methods in jQuery</title>
+</head>
+<body>
+    <h1>String methods in jQuery</h1>
+
+    <input type="button" id="getData" value="Get data"/>
+
+    <table id="table1">
+        <tr>
+            <td>Credit Card Number</td>
+            <td id="td1"></td>
+        </tr>
+        <tr>
+            <td>Card Holder Name</td>
+            <td id="td2"></td>
+        </tr>
+        <tr>
+            <td>Card Type</td>
+            <td id="td3"></td>
+        </tr>
+        <tr>
+            <td>Expiry Date</td>
+            <td id="td4"></td>
+        </tr>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+    <script>
+
+        
+        
+
+        $(document).ready(function(){
+
+            $("#getData").click(function(){
+
+        
+            var customerObj = {cardNumber : 1234456778901234, chName : "NarasimHa rAo", cardType:"Visa", expireMonth: 12, expireYear:2023}
+
+            //card no.
+            $("#td1").html(`****-****-****-${String(customerObj.cardNumber).slice(12)}`);
+
+            //name
+            const words = customerObj.chName.split(" ");
+            for (let i = 0; i < words.length; i++) {
+                        words[i] = words[i][0].toUpperCase() + words[i].substr(1).toLowerCase();
+                    }
+        
+            $("#td2").html(words.join(" "))
+
+            //card name
+            $("#td3").html(customerObj.cardType.toUpperCase())
+
+            //expire date
+            const emonth = new Date();
+            emonth.setMonth(customerObj.expireMonth);
+            
+            let a = emonth.toLocaleDateString('en-US', { month: 'short'})
+            $("#td4").html(`${a} ${customerObj.expireYear}`)
+        });
+
+        });
+    </script>
+</body>
+</html>
